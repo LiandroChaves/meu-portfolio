@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav {
+    width: 100%;
+    box-shadow: 0 0 10px rgb(0 0 0 / 8%);
+    background-color: #023047;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.nomeLoja {
+    color: #FFB703;
+    font-size: 23.5px;
+    margin-right: 15%;
+    flex: 1 1 auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1 1 auto;
+    margin-left: -25%;
+}
+
+.menu li {
+    display: inline;
+    padding: 5px;
+}
+
+.pesq {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex: 1 1 auto;
+    margin-left: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu li a {
+    text-decoration: none;
+}
+
+.menu li:hover .submenu {
+    margin-top: 10px;
+    height: 40px;
+    background-color: #023047;
+    width: 100%;
+}
+
+.menu>li:hover>a {
+    color: #3e95ff;
+}
+
+.menu>li:hover>a::before {
+    visibility: visible;
+    scale: 1 1;
+}
+
+.submenu {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    height: 0;
+    line-height: 40px;
+    box-sizing: border-box;
+    transition: height 0.3s ease-in-out;
+}
+
+.menu li .submenu a {
+    color: #FFB703;
+    opacity: 0;
+    font-size: 16px;
+    transition: opacity 0.25s;
+}
+
+.menu>li:hover .submenu a {
+    opacity: 1;
+}
+
+.menu>li .submenu a:hover {
+    background: rgb(0 0 0 / 20%);
+}
+
+.menu>li a {
+    color: #FFB703;
+    position: relative;
+    height: 100%;
+}
+
+.menu>li a::before {
+    content: "";
+    position: absolute;
+    width: 105%;
+    height: 3px;
+    bottom: 3px;
+    top: 25px;
+    left: 0px;
+    background: #FFB703;
+    transition: all 0.2s ease-in-out;
+    scale: 0 0;
+    visibility: hidden;
+}
+
+.input {
+    width: 130px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 10px 18px 10px 38px;
+    transition: width 0.4s ease-in-out;
+    background: url('../assets/lupa.png') no-repeat 10px center / 15px 15px white;
+}
+
+.input:focus {
+    width: 100%;
+}
+
+.button {
+    padding: 0 13px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #FB8500;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #FFB703;
+    height: 35px;
+    margin-left: 10px;
+    position: relative;
+    top: -5px;
+}
+
+.button:hover {
+    background-color: #FB8500;
+}
+
+.button:active {
+    background-color: #FFB703;
+    box-shadow: 0 5px #FFB703;
+    transform: translateY(4px);
+}
+
+.menuToggle {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #FFB703;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: row;
+        align-items: flex-start;
+        height: auto;
+        width: 120%;
+    }
+
+    .nomeLoja {
+        margin-left: 10px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        position: relative;
+        top: 5px;
+    }
+
+    .menuToggle {
+        display: block;
+        order: -1;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #023047;
+        width: 100%;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav.active .menu {
+        display: flex;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+    }
+
+    .pesq {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .input {
+        width: 100%;
+    }
+}
